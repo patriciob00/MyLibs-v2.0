@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#ffa500</color>
+    <color name="primaryColorDark">#ff8c00</color>
+    <color name="accentColor">#ffffe0</color>
+    <color name="slateBlueColor">#6a5acd</color>
+    <color name="slateBlueDarkColor">#483d8b</color>
+    <color name="purpuraMedioColor">#9370db</color>
+    <color name="blueVioletColor">#802be2</color>
+    <color name="verdeLimaColor">#32cd32</color>
+    <color name="azulIndigoColor">#4b0082</color>
+    <color name="purpuraColor">#800080</color>
+    <color name="darkMagentaColor">#8b008b</color>
+    <color name="verdeLimaDarkColor">#11ad32</color>
+</resources>
