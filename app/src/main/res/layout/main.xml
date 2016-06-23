@@ -2,135 +2,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffe2dcde"
-    android:orientation="vertical"
-    tools:context=".Main">
+    android:orientation="vertical">
 
     <include  android:id="@+id/app_bar"
         layout="@layout/app_bar"/>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffe2dcde"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1">
+        android:layout_height="match_parent">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="6dp"
-                android:background="#cacaca">
+        <include android:id="@+id/main_content"
+            layout="@layout/main_content"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="3dp"
-                    android:background="#fff"
-                    android:paddingBottom="2dp"
-                    android:paddingTop="2dp">
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:elevation="4dp"
+                app:fabSize="normal"
+                android:backgroundTint="@color/verdeLimaColor"
+                android:background="@color/verdeLimaColor"
+                android:layout_marginBottom="140dp"
+                android:layout_gravity="end|bottom"
+                app:useCompatPadding="true"
+                android:src="@drawable/ic_collections_bookmark_white_24px"
+                android:id="@+id/fab_title"
+                android:visibility="invisible"
+                app:backgroundTint="@color/verdeLimaColor" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal"
-                        android:text="Última item adquirido :"
-                        android:textColor="@color/verdeLimaColor"
-                        android:textSize="19sp"/>
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:elevation="4dp"
+                app:fabSize="normal"
+                android:backgroundTint="@color/verdeLimaColor"
+                android:background="@color/verdeLimaColor"
+                android:layout_marginBottom="70dp"
+                android:layout_gravity="end|bottom"
+                app:useCompatPadding="true"
+                android:src="@drawable/ic_import_contacts_white_24px"
+                android:id="@+id/fab_volume"
+                app:backgroundTint="@color/verdeLimaColor"
+                android:clickable="true"
+                android:visibility="invisible"
+                android:contentDescription="Volume"
+                android:fitsSystemWindows="true" />
 
-                </LinearLayout>
-            </FrameLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:elevation="4dp"
+                android:backgroundTint="@color/verdeLimaColor"
+                android:background="@color/verdeLimaColor"
+                app:fabSize="normal"
+                android:layout_gravity="end|bottom"
+                app:useCompatPadding="true"
+                android:src="@drawable/ic_add_white_24px"
+                android:id="@+id/fab_add"
+                app:backgroundTint="@color/verdeLimaColor" />
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="6dp"
-                android:background="#cacaca" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="#fff">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center_horizontal"
-                    android:text="Itens emprestados"
-                    android:textColor="@color/verdeLimaColor"
-                    android:textSize="19sp"/>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="3dp"
-                android:background="#cacaca"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="#fff">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center_horizontal"
-                    android:text="Lembretes"
-                    android:textColor="@color/verdeLimaColor"
-                    android:textSize="19sp"/>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-
-
-
-    </LinearLayout>
-
-
+    </FrameLayout>
 </LinearLayout>

@@ -1,12 +1,15 @@
 package com.mycompany.mylibs.Activities;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
@@ -39,9 +42,9 @@ public class Main extends ActionBarActivity {
     SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName(Titulos);
     SecondaryDrawerItem item3 = new SecondaryDrawerItem().withName(Categorias);
     private int mPositionClicked;
-
-
-
+    FloatingActionButton add, title, volume;
+    Boolean isShow = false;
+    private Animation rotate_forward, rotate_backward;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class Main extends ActionBarActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar( ).setTitle("My Libs");
         getSupportActionBar().setElevation(2);
+        setFabs ();
 
         //ACCOUNT HEADER
         header = new AccountHeaderBuilder()
@@ -121,7 +125,37 @@ public class Main extends ActionBarActivity {
 
     }
 
-    private int getCorrectDrawerIcon( int position , boolean isSelected){
+    // seta os Fabs usados na aplicação
+    public void setFabs () {
+        add = ( FloatingActionButton )findViewById( R.id.fab_add );
+        title = ( FloatingActionButton )findViewById( R.id.fab_title );
+        volume = ( FloatingActionButton )findViewById( R.id.fab_volume );
+        rotate_forward = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.rotate_forward);
+        rotate_backward = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.rotate_backward);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isShow) {
+                    add.startAnimation( rotate_forward );
+                    title.show();
+                    volume.show();
+                } else {
+                    add.startAnimation( rotate_backward );
+                    title.hide();
+                    volume.hide();
+                }
+                isShow = !isShow;
+            }
+        });
+    }
+    @Override
+    protected void onResume() {
+        add.show();
+        super.onResume();
+    }
+
+    private int getCorrectDrawerIcon(int position , boolean isSelected){
         switch ( position ){
             case 0:
                 return ( isSelected ? R.drawable.volumes_selected : R.drawable.volumes);

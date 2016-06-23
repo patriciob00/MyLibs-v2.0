@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="last_buy">Ultimo item adquirido</string>
+    <string name="loans">Itens emprestados</string>
+    <string name="notes">Lembretes</string>
 </resources>
