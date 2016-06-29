@@ -1,8 +1,23 @@
 package com.mycompany.mylibs.Activities;
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
@@ -27,169 +42,157 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mycompany.mylibs.R;
+import com.mycompany.mylibs.fragments.buys_frag;
+import com.mycompany.mylibs.fragments.loans_frag;
+import com.mycompany.mylibs.fragments.message_frag;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.R.attr.data;
+import static com.mycompany.mylibs.R.id.pager;
 
 
 public class Main extends ActionBarActivity {
 
     private Toolbar toolbar;
-    private Drawer Navigation;
-    private AccountHeader header;
-    private String Titulos = "Titulos";
-    private String Volumes = "Volumes";
-    private String Categorias = "Categorias";
-    private String Emprestimos = "Emprestimos";
-    PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName(Volumes);
-    SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName(Titulos);
-    SecondaryDrawerItem item3 = new SecondaryDrawerItem().withName(Categorias);
-    private int mPositionClicked;
     FloatingActionButton add, title, volume;
     Boolean isShow = false;
     private Animation rotate_forward, rotate_backward;
+    DrawerLayout drawerLayout;
+    CoordinatorLayout content;
+    NavigationView navView;
+    Intent data;
+    ViewPager pager;
+    TabLayout tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        toolbar =( Toolbar ) findViewById( R.id.app_bar );
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar( ).setTitle("My Libs");
-        getSupportActionBar().setElevation(2);
-        setFabs ();
-
-        //ACCOUNT HEADER
-        header = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withCompactStyle(false)
-                .withSavedInstance(savedInstanceState)
-                .withThreeSmallProfileImages(false)
-                .withHeaderBackground(R.drawable.wallpaper1)
-                .addProfiles(
-                        new ProfileDrawerItem().withName("Patricio Bruno").withEmail("pbrunorb@hotmail.com").withIcon(getResources().getDrawable(R.drawable.perfil_principal))
-                )
-                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
-
-                    @Override
-                    public boolean onProfileChanged(View view, IProfile profile, boolean current) {
-                        Toast.makeText(Main.this, "onProfileChanged: " + profile.getName(), Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-                })
-                .build();
-
-        //NAVIGATION DRAWER
-        Navigation = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(toolbar)
-                .withActionBarDrawerToggleAnimated(true)
-                .withDrawerGravity(Gravity.LEFT)
-                .withActionBarDrawerToggle(true)
-                .withAccountHeader(header)
-                .withSavedInstance(savedInstanceState)
-                .withSelectedItem(0)
-                .withOnDrawerItemClickListener(new OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick( View view, int position, IDrawerItem drawerItem ) {
-                        for (int count = 0, tam = Navigation.getDrawerItems().size(); count < tam; count++) {
-                            if (count == mPositionClicked && mPositionClicked <= 3) {
-                                PrimaryDrawerItem aux = (PrimaryDrawerItem) Navigation.getDrawerItems().get(count);
-                                aux.withIcon(getResources().getDrawable(getCorrectDrawerIcon(count, false)));
-                                break;
-                            }
-                        }
-                        if ( position <= 3) {
-                            ((PrimaryDrawerItem) drawerItem ).withIcon(getResources().getDrawable(getCorrectDrawerIcon( position, true )));
-                        }
-                        mPositionClicked = 1;
-                        Navigation.getAdapter().notifyDataSetChanged();
-                        return false;
-                    }
-
-                })
-                .withOnDrawerItemLongClickListener(new Drawer.OnDrawerItemLongClickListener() {
-                    @Override
-                    public boolean onItemLongClick(View view, int position, IDrawerItem drawerItem) {
-                        return false;
-                    }
-                })
-                .build();
-        Navigation.addItem(new PrimaryDrawerItem().withName("Titulos").withIcon(getResources().getDrawable(R.drawable.volumes)));
-        Navigation.addItem(new PrimaryDrawerItem().withName("Volumes").withIcon(getResources().getDrawable(R.drawable.titulos)));
-        Navigation.addItem(new PrimaryDrawerItem().withName("Categorias").withIcon(getResources().getDrawable(R.drawable.categorias)));
-        Navigation.addItem(new PrimaryDrawerItem().withName("Emprestimos").withIcon(getResources().getDrawable(R.drawable.emprestimo)));
-        Navigation.addItem( new SectionDrawerItem().withName("Configurações"));
-        Navigation.addItem( new ProfileSettingDrawerItem().withName("Perfil").withIcon(getResources().getDrawable(R.drawable.perfil)));
-        Navigation.addItem(new SecondaryDrawerItem().withName("Configurações").withIcon(getResources().getDrawable(R.drawable.settings)));
-
+        SetToolbar();
+        SetupTabs();
+        SetNavDrawer();
     }
 
-    // seta os Fabs usados na aplicação
-    public void setFabs () {
-        add = ( FloatingActionButton )findViewById( R.id.fab_add );
-        title = ( FloatingActionButton )findViewById( R.id.fab_title );
-        volume = ( FloatingActionButton )findViewById( R.id.fab_volume );
-        rotate_forward = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.rotate_forward);
-        rotate_backward = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.rotate_backward);
+    public void SetToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24px);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
-        add.setOnClickListener(new View.OnClickListener() {
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFrag(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
+
+    public void SetNavDrawer() {
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        content = (CoordinatorLayout) findViewById(R.id.content);
+        navView = (NavigationView) findViewById(R.id.navigation);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                if (!isShow) {
-                    add.startAnimation( rotate_forward );
-                    title.show();
-                    volume.show();
-                } else {
-                    add.startAnimation( rotate_backward );
-                    title.hide();
-                    volume.hide();
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.titles:
+                        item.setChecked(true);
+                        /*data = new Intent(Main.this, drones.class);
+                        startActivity(data);*/
+                        break;
+                    case R.id.volume:
+                        item.setChecked(true);
+                        /*data = new Intent(Main.this, map.class);
+                        data.putExtra("title", "Tempo");
+                        startActivity(data);*/
+                        break;
+                    case R.id.categories:
+                        item.setChecked(true);
+                        break;
+                    case R.id.loans:
+                        item.setChecked(true);
+                        break;
+                    case R.id.profile:
+                        item.setChecked(true);
+                        break;
+                    case R.id.settings:
+                        item.setChecked(true);
+                        break;
                 }
-                isShow = !isShow;
+                Snackbar.make(content, item.getTitle() + "pressed", Snackbar.LENGTH_LONG).show();
+                //onNavDrawerItemSelected(item);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
         });
     }
+
+    private void setupViewPager( ViewPager viewPager ) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new loans_frag(), "EMPRÉSTIMOS");
+        adapter.addFrag(new buys_frag(), "COMPRAS");
+        adapter.addFrag(new message_frag(), "MENSAGENS");
+        viewPager.setAdapter( adapter );
+    }
+
+    public void SetupTabs() {
+        tab = (TabLayout) findViewById(R.id.tabs);
+        pager = (ViewPager) findViewById(R.id.pager);
+
+        setupViewPager( pager );
+        tab.setupWithViewPager( pager );
+
+    }
+
     @Override
-    protected void onResume() {
-        add.show();
-        super.onResume();
-    }
-
-    private int getCorrectDrawerIcon(int position , boolean isSelected){
-        switch ( position ){
-            case 0:
-                return ( isSelected ? R.drawable.volumes_selected : R.drawable.volumes);
-            case 1:
-                return ( isSelected ? R.drawable.titulos_selected : R.drawable.titulos);
-            case 2:
-                return ( isSelected ? R.drawable.categorias_selected : R.drawable.categorias);
-            case 3:
-                return ( isSelected ? R.drawable.emprestimo_selected : R.drawable.emprestimo);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawerLayout != null) {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                    return true;
+                }
         }
-        return (0);
+        return super.onOptionsItemSelected(item);
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:icon="@drawable/ic_three_books"
+            android:id="@+id/titles"
+            android:checked="false"
+            android:title="Títulos" />
+
+        <item
+            android:icon="@drawable/ic_hardbound_book_variant"
+            android:id="@+id/volume"
+            android:checked="false"
+            android:title="Volumes" />
+
+        <item
+            android:icon="@drawable/ic_2_squares"
+            android:id="@+id/categories"
+            android:checked="false"
+            android:title="Categorias" />
+
+        <item
+            android:icon="@drawable/ic_swap_vertical_circle_black_24dp"
+            android:id="@+id/loans"
+            android:checked="false"
+            android:title="Empréstimos" />
+
+        <item
+            android:title="">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:icon="@drawable/ic_account_box_black_24dp"
+                        android:id="@+id/profile"
+                        android:checked="false"
+                        android:title="Perfil" />
+                    <item
+                        android:icon="@drawable/ic_settings_applications_black_24dp"
+                        android:id="@+id/settings"
+                        android:checked="false"
+                        android:title="Configurações" />
+                </group>
+            </menu>
+        </item>
+
+
+
+    </group>
+
+</menu>

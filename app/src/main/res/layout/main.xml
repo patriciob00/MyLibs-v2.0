@@ -1,66 +1,55 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#ffe2dcde"
-    android:orientation="vertical">
+    tools:context=".Activities.Main">
 
-    <include  android:id="@+id/app_bar"
-        layout="@layout/app_bar"/>
-
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include android:id="@+id/main_content"
-            layout="@layout/main_content"/>
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:elevation="4dp"
-                app:fabSize="normal"
-                android:backgroundTint="@color/verdeLimaColor"
-                android:background="@color/verdeLimaColor"
-                android:layout_marginBottom="140dp"
-                android:layout_gravity="end|bottom"
-                app:useCompatPadding="true"
-                android:src="@drawable/ic_collections_bookmark_white_24px"
-                android:id="@+id/fab_title"
-                android:visibility="invisible"
-                app:backgroundTint="@color/verdeLimaColor" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:elevation="4dp"
-                app:fabSize="normal"
-                android:backgroundTint="@color/verdeLimaColor"
-                android:background="@color/verdeLimaColor"
-                android:layout_marginBottom="70dp"
-                android:layout_gravity="end|bottom"
-                app:useCompatPadding="true"
-                android:src="@drawable/ic_import_contacts_white_24px"
-                android:id="@+id/fab_volume"
-                app:backgroundTint="@color/verdeLimaColor"
-                android:clickable="true"
-                android:visibility="invisible"
-                android:contentDescription="Volume"
-                android:fitsSystemWindows="true" />
+            <android.support.design.widget.TabLayout
+                app:layout_collapseMode="pin"
+                android:id="@+id/tabs"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.design.widget.TabLayout>
+        </android.support.design.widget.AppBarLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:elevation="4dp"
-                android:backgroundTint="@color/verdeLimaColor"
-                android:background="@color/verdeLimaColor"
-                app:fabSize="normal"
-                android:layout_gravity="end|bottom"
-                app:useCompatPadding="true"
-                android:src="@drawable/ic_add_white_24px"
-                android:id="@+id/fab_add"
-                app:backgroundTint="@color/verdeLimaColor" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </FrameLayout>
-</LinearLayout>
+        </android.support.v4.view.ViewPager>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer" />
+</android.support.v4.widget.DrawerLayout>
