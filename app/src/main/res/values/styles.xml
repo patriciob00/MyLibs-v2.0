@@ -5,6 +5,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    </style>
+
+
     <style name="AppTheme.Base" parent="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus">
         <item name="colorPrimary">@color/verdeLimaColor</item>
         <item name="colorPrimaryDark">@color/verdeLimaDarkColor</item>
@@ -21,9 +25,15 @@
         <item name="material_drawer_header_selection_text">@color/material_drawer_header_selection_text</item>
     </style>
 
-    <style name="MyCustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="MyCustomToolbarTheme" parent="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus">
         <item name="android:textColorPrimary">@color/accentColor</item>
         <item name="android:textColorSecondary">@color/accentColor</item>
+    </style>
+
+    <style name="MyCustomToolbar" parent="MyCustomToolbarTheme">
+        <item name="colorPrimary">@color/accentColor</item>
+        <item name="colorPrimaryDark">@color/slateBlueColor</item>
+        <item name="colorAccent">@color/verdeLimaColor</item>
     </style>
 
     <style name="MyCustomPopupTheme" parent="ThemeOverlay.AppCompat.Light">

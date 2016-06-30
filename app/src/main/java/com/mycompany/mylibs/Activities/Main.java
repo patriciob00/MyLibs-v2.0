@@ -19,28 +19,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.Toast;
-
-import com.mikepenz.materialdrawer.AccountHeader;
-import com.mikepenz.materialdrawer.AccountHeaderBuilder;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.Drawer.OnDrawerItemClickListener;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mycompany.mylibs.R;
 import com.mycompany.mylibs.fragments.buys_frag;
 import com.mycompany.mylibs.fragments.loans_frag;
@@ -49,16 +30,10 @@ import com.mycompany.mylibs.fragments.message_frag;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.data;
-import static com.mycompany.mylibs.R.id.pager;
-
 
 public class Main extends ActionBarActivity {
 
     private Toolbar toolbar;
-    FloatingActionButton add, title, volume;
-    Boolean isShow = false;
-    private Animation rotate_forward, rotate_backward;
     DrawerLayout drawerLayout;
     CoordinatorLayout content;
     NavigationView navView;
@@ -126,30 +101,36 @@ public class Main extends ActionBarActivity {
                 switch (item.getItemId()) {
                     case R.id.titles:
                         item.setChecked(true);
-                        /*data = new Intent(Main.this, drones.class);
-                        startActivity(data);*/
+                        data = new Intent(Main.this, title.class);
+                        startActivity(data);
                         break;
                     case R.id.volume:
                         item.setChecked(true);
-                        /*data = new Intent(Main.this, map.class);
+                        data = new Intent(Main.this, volume.class);
                         data.putExtra("title", "Tempo");
-                        startActivity(data);*/
+                        startActivity(data);
                         break;
                     case R.id.categories:
                         item.setChecked(true);
+                        data = new Intent ( Main.this, category.class);
+                        startActivity( data );
                         break;
                     case R.id.loans:
                         item.setChecked(true);
+                        data = new Intent ( Main.this, loans.class);
+                        startActivity( data );
                         break;
                     case R.id.profile:
                         item.setChecked(true);
+                        data = new Intent ( Main.this, profile.class);
+                        startActivity( data );
                         break;
                     case R.id.settings:
                         item.setChecked(true);
+                        data = new Intent ( Main.this, settings.class);
+                        startActivity( data );
                         break;
                 }
-                Snackbar.make(content, item.getTitle() + "pressed", Snackbar.LENGTH_LONG).show();
-                //onNavDrawerItemSelected(item);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }

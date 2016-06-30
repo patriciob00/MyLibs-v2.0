@@ -17,4 +17,15 @@
     <string name="no_messages">Você ainda não tem nenhuma mensagem</string>
     <string name="no_compras">Você ainda não comprou nenhum Titulo/volume</string>
     <string name="no_loans">Você ainda não tem nenhum empréstimo</string>
+    <string name="no_itens">Desculpe , não há itens para serem exibidos.</string>
+    <string name="category">Categorias</string>
+    <string name="titles">Titulos</string>
+    <string name="volume">Volumes</string>
+    <string name="loan">Empréstimos</string>
+    <string name="profile">Perfil</string>
+    <string name="settings">Configurações</string>
+    <string name="add_category">Nova categoria</string>
+    <string name="add_title">Novo titulo</string>
+    <string name="add_volume">Novo volume</string>
+    <string name="no_invites">Você não tem nenhuma solicitação de empréstimo</string>
 </resources>

@@ -12,4 +12,6 @@
     <color name="purpuraColor">#800080</color>
     <color name="darkMagentaColor">#8b008b</color>
     <color name="verdeLimaDarkColor">#11ad32</color>
+    <color name="gray">#eaeaea</color>
+    <color name="colorWhite">#fff</color>
 </resources>
