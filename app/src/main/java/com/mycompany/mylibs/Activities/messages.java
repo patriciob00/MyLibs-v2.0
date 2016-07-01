@@ -11,17 +11,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.mycompany.mylibs.R;
-import com.mycompany.mylibs.fragments.buys_frag;
-import com.mycompany.mylibs.fragments.loans_frag;
 import com.mycompany.mylibs.fragments.loans_invites;
-import com.mycompany.mylibs.fragments.message_frag;
 import com.mycompany.mylibs.fragments.their_loans;
 import com.mycompany.mylibs.fragments.your_loans;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class loans extends AppCompatActivity {
+public class messages extends AppCompatActivity {
     ViewPager pager;
     TabLayout tab;
     Toolbar toolbar;
@@ -75,7 +72,7 @@ public class loans extends AppCompatActivity {
     }
 
     private void setupViewPager( ViewPager viewPager ) {
-        loans.ViewPagerAdapter adapter = new loans.ViewPagerAdapter(getSupportFragmentManager());
+        messages.ViewPagerAdapter adapter = new messages.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new their_loans(), "Para você");
         adapter.addFrag(new your_loans(), "De você");
         adapter.addFrag(new loans_invites(), "Solicitações");

@@ -6,31 +6,28 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.mycompany.mylibs.R;
-import com.mycompany.mylibs.add_activities.add_category;
+import com.mycompany.mylibs.add_activities.add_collection;
 
-public class category extends AppCompatActivity {
+public class collections extends AppCompatActivity {
     CollapsingToolbarLayout collapse;
     Toolbar toolbar;
     FloatingActionButton floatingActionButton;
-    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_title);
 
         setBar();
     }
 
     public void setBar () {
-
-            toolbar = ( Toolbar ) findViewById( R.id.bar_category );
-            toolbar.setTitle( "Categorias" );
+            toolbar = ( Toolbar ) findViewById( R.id.bar_title );
+            toolbar.setTitle( "Titulos" );
             toolbar.setTitleTextColor( getResources().getColor( R.color.colorWhite ) );
             setSupportActionBar( toolbar );
             final ActionBar actionBar = getSupportActionBar();
@@ -38,18 +35,18 @@ public class category extends AppCompatActivity {
                 actionBar.setDefaultDisplayHomeAsUpEnabled( true );
                 actionBar.setDisplayHomeAsUpEnabled( true );
             }
-            collapse = ( CollapsingToolbarLayout ) findViewById( R.id.collapseCategory );
+            collapse = ( CollapsingToolbarLayout ) findViewById( R.id.collapseTitle );
             collapse.setExpandedTitleColor(getResources().getColor( R.color.colorWhite ));
-            collapse.setTitle( "Categorias" );
+            collapse.setTitle( "Titulos" );
 
-            floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_category);
-            floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent data = new Intent( category.this, add_category.class );
-                    startActivity( data );
-                    finish();
-                }
-            });
-        }
+        floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_title);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent data = new Intent( collections.this, add_collection.class );
+                startActivity( data );
+                finish();
+            }
+        });
+    }
 }

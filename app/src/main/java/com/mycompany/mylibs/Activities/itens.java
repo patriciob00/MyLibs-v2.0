@@ -11,9 +11,9 @@ import android.view.View;
 
 import com.mycompany.mylibs.R;
 
-import com.mycompany.mylibs.add_activities.add_volume;
+import com.mycompany.mylibs.add_activities.add_item;
 
-public class volume extends AppCompatActivity {
+public class itens extends AppCompatActivity {
     CollapsingToolbarLayout collapse;
     Toolbar toolbar;
     FloatingActionButton floatingActionButton;
@@ -45,7 +45,7 @@ public class volume extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent data = new Intent( volume.this, add_volume.class );
+                Intent data = new Intent( itens.this, add_item.class );
                 startActivity( data );
                 finish();
             }

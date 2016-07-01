@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.mycompany.mylibs.R;
 
-public class add_title extends AppCompatActivity {
+public class add_collection extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

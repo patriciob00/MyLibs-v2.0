@@ -19,68 +19,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.category"
-                    android:parentActivityName=".Activities.Main">
-
+        <activity
+            android:name=".Activities.categories"
+            android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
         </activity>
-
-        <activity android:name=".Activities.title"
-
-                    android:parentActivityName=".Activities.Main">
+        <activity
+            android:name=".Activities.collections"
+            android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
         </activity>
-
-        <activity android:name=".Activities.volume"
-                    android:parentActivityName=".Activities.Main">
+        <activity
+            android:name=".Activities.itens"
+            android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
         </activity>
-
-        <activity android:name=".Activities.loans"
-                    android:label="@string/loan"
-                    android:parentActivityName=".Activities.Main">
+        <activity
+            android:name=".Activities.messages"
+            android:label="@string/loan"
+            android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
         </activity>
-
-        <activity android:name=".Activities.profile"
-
-                    android:parentActivityName=".Activities.Main">
+        <activity
+            android:name=".Activities.profile"
+            android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
         </activity>
-
-        <activity android:name=".Activities.settings"
-                    android:theme="@style/MyCustomToolbar"
-
-                    android:parentActivityName=".Activities.Main">
+        <activity
+            android:name=".Activities.settings"
+            android:parentActivityName=".Activities.Main"
+            android:theme="@style/MyCustomToolbar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
         </activity>
-
-        <activity android:name=".add_activities.add_category"
-                    android:label="@string/add_category">
-
-        </activity>
-
-        <activity android:name=".add_activities.add_title"
-                    android:label="@string/add_title">
-
-        </activity>
-
-        <activity android:name=".add_activities.add_volume"
-                    android:label="@string/add_volume">
-
-        </activity>
+        <activity
+            android:name=".add_activities.add_category"
+            android:label="@string/add_category" />
+        <activity
+            android:name=".add_activities.add_collection"
+            android:label="@string/add_title" />
+        <activity
+            android:name=".add_activities.add_item"
+            android:label="@string/add_volume" />
+        <activity android:name=".Activities.friends" />
+        <activity android:name=".Activities.login" />
+        <activity android:name=".add_activities.new_user"></activity>
     </application>
 
 </manifest>

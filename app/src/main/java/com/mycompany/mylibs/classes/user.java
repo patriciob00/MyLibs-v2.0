@@ -5,4 +5,12 @@ package com.mycompany.mylibs.classes;
  */
 
 public class user {
+    public int _id;
+    public String name;
+    public String email;
+    public String password;
+    public String state;
+    public String city;
+    public String tel;
+    public String user_img;
 }

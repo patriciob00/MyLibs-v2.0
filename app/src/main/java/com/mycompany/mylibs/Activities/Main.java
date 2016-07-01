@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,7 +19,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Animation;
+
 import com.mycompany.mylibs.R;
 import com.mycompany.mylibs.fragments.buys_frag;
 import com.mycompany.mylibs.fragments.loans_frag;
@@ -101,23 +99,23 @@ public class Main extends ActionBarActivity {
                 switch (item.getItemId()) {
                     case R.id.titles:
                         item.setChecked(true);
-                        data = new Intent(Main.this, title.class);
+                        data = new Intent(Main.this, collections.class);
                         startActivity(data);
                         break;
                     case R.id.volume:
                         item.setChecked(true);
-                        data = new Intent(Main.this, volume.class);
-                        data.putExtra("title", "Tempo");
+                        data = new Intent(Main.this, itens.class);
+                        data.putExtra("collection", "Tempo");
                         startActivity(data);
                         break;
                     case R.id.categories:
                         item.setChecked(true);
-                        data = new Intent ( Main.this, category.class);
+                        data = new Intent ( Main.this, categories.class);
                         startActivity( data );
                         break;
                     case R.id.loans:
                         item.setChecked(true);
-                        data = new Intent ( Main.this, loans.class);
+                        data = new Intent ( Main.this, messages.class);
                         startActivity( data );
                         break;
                     case R.id.profile:
