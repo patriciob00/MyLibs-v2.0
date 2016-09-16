@@ -21,7 +21,7 @@ public class itens extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volume);
+        setContentView(R.layout.activity_itens);
 
         setBar();
     }
@@ -29,7 +29,7 @@ public class itens extends AppCompatActivity {
     public void setBar () {
 
             toolbar = ( Toolbar ) findViewById( R.id.bar_volume );
-            toolbar.setTitle( "Volumes" );
+            toolbar.setTitle( "Itens" );
             toolbar.setTitleTextColor( getResources().getColor( R.color.colorWhite ) );
             setSupportActionBar( toolbar );
             final ActionBar actionBar = getSupportActionBar();
@@ -39,7 +39,7 @@ public class itens extends AppCompatActivity {
             }
             collapse = ( CollapsingToolbarLayout ) findViewById( R.id.collapseVolume );
             collapse.setExpandedTitleColor(getResources().getColor( R.color.colorWhite ));
-            collapse.setTitle( "Volumes" );
+            collapse.setTitle( "Itens" );
 
         floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_volume);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

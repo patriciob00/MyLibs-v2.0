@@ -5,15 +5,15 @@
 
         <item
             android:icon="@drawable/ic_three_books"
-            android:id="@+id/titles"
+            android:id="@+id/collections"
             android:checked="false"
-            android:title="Títulos" />
+            android:title="Coleções" />
 
         <item
             android:icon="@drawable/ic_hardbound_book_variant"
-            android:id="@+id/volume"
+            android:id="@+id/itens"
             android:checked="false"
-            android:title="Volumes" />
+            android:title="Itens" />
 
         <item
             android:icon="@drawable/ic_2_squares"
@@ -22,10 +22,16 @@
             android:title="Categorias" />
 
         <item
-            android:icon="@drawable/ic_swap_vertical_circle_black_24dp"
-            android:id="@+id/loans"
+            android:icon="@drawable/ic_face_black_24dp"
+            android:id="@+id/friends"
             android:checked="false"
-            android:title="Empréstimos" />
+            android:title="Amigos" />
+
+        <item
+            android:icon="@drawable/ic_swap_vertical_circle_black_24dp"
+            android:id="@+id/market"
+            android:checked="false"
+            android:title="Market" />
 
         <item
             android:title="">

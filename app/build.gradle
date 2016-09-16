@@ -35,5 +35,5 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
     compile 'com.android.support:support-v4:24.0.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
 }

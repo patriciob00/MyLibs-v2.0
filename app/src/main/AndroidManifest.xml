@@ -41,14 +41,6 @@
                 android:value=".Activities.Main" />
         </activity>
         <activity
-            android:name=".Activities.messages"
-            android:label="@string/loan"
-            android:parentActivityName=".Activities.Main">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.Main" />
-        </activity>
-        <activity
             android:name=".Activities.profile"
             android:parentActivityName=".Activities.Main">
             <meta-data
@@ -74,7 +66,8 @@
             android:label="@string/add_volume" />
         <activity android:name=".Activities.friends" />
         <activity android:name=".Activities.login" />
-        <activity android:name=".add_activities.new_user"></activity>
+        <activity android:name=".add_activities.new_user" />
+        <activity android:name=".Activities.market"></activity>
     </application>
 
 </manifest>
