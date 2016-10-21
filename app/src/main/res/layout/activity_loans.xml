@@ -5,7 +5,7 @@
     android:id="@+id/drones"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.friends">
+    tools:context=".Activities.loans">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:theme="@style/anotherBar">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/bar_itens"
+            android:id="@+id/bar_loans"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -23,7 +23,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_itens"
+        android:id="@+id/fab_loans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right|end"

@@ -5,21 +5,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.mycompany.mylibs.R;
 import com.mycompany.mylibs.fragments.buys_frag;
@@ -32,38 +34,59 @@ import java.util.List;
 
 public class Main extends ActionBarActivity {
 
-    Toolbar toolbar;
+    private Toolbar toolbar;
     DrawerLayout drawerLayout;
     CoordinatorLayout content;
     NavigationView navView;
     Intent data;
     ViewPager pager;
     TabLayout tab;
-    ActionBarDrawerToggle drawerToggle;
+    FloatingActionButton fab;
+    int positionTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
         SetToolbar();
         SetupTabs();
         SetNavDrawer();
+        setFAB();
+    }
+
+    public void setFAB() {
+        fab = (FloatingActionButton)  findViewById(R.id.fab);
+        fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_swap_white_24dp));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (positionTab) {
+                    case 0:
+                        data = new Intent(Main.this, loans.class);
+                        startActivity(data);
+                        break;
+                    case 1:
+                        data = new Intent(Main.this, market.class);
+                        startActivity(data);
+                        break;
+                    case 2:
+                        data = new Intent(Main.this, messages.class);
+                        startActivity(data);
+                        break;
+                }
+            }
+        });
     }
 
     public void SetToolbar() {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled( true );
-        getSupportActionBar().setDisplayHomeAsUpEnabled( true );
-        getSupportActionBar().setDisplayShowTitleEnabled( true );
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24px);
-        /*ActionBar actionBar = getSupportActionBar();
+        final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDefaultDisplayHomeAsUpEnabled(true);
-
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24px);
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }*/
+        }
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -120,10 +143,9 @@ public class Main extends ActionBarActivity {
                         startActivity( data );
                         break;
                     case R.id.friends:
-                        Toast.makeText(Main.this, "Clicado em amigos", Toast.LENGTH_SHORT).show();
-                        /*item.setChecked(true);
-                        data = new Intent ( Main.this, messages.class);
-                        startActivity( data );*/
+                        item.setChecked(true);
+                        data = new Intent ( Main.this, friends.class);
+                        startActivity( data );
                         break;
                     case R.id.market :
                         item.setChecked(true);
@@ -161,6 +183,39 @@ public class Main extends ActionBarActivity {
 
         setupViewPager( pager );
         tab.setupWithViewPager( pager );
+
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        positionTab = position;
+                        fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_swap_white_24dp));
+                        fab.show();
+                        break;
+                    case 1:
+                        positionTab = position;
+                        fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_attach_money_white_36px));
+                        fab.show();
+                        break;
+                    case 2:
+                        positionTab = position;
+                        fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_message_white_36px));
+                        fab.show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override

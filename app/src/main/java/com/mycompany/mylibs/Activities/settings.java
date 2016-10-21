@@ -1,16 +1,14 @@
 package com.mycompany.mylibs.Activities;
 
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.mycompany.mylibs.R;
 
 public class settings extends AppCompatActivity {
     Toolbar toolbar;
-    CollapsingToolbarLayout collapse;
 
 
     @Override
@@ -31,9 +29,6 @@ public class settings extends AppCompatActivity {
             actionBar.setDefaultDisplayHomeAsUpEnabled( true );
             actionBar.setDisplayHomeAsUpEnabled( true );
         }
-        collapse = (CollapsingToolbarLayout) findViewById( R.id.collapseSettings );
-        collapse.setExpandedTitleColor(getResources().getColor( R.color.colorWhite ));
-        collapse.setTitle( "Settings" );
     }
 }
 

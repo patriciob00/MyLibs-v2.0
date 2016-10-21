@@ -20,14 +20,14 @@ public class collections extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_title);
+        setContentView(R.layout.activity_collections);
 
         setBar();
     }
 
     public void setBar () {
-            toolbar = ( Toolbar ) findViewById( R.id.bar_title );
-            toolbar.setTitle( "Titulos" );
+            toolbar = ( Toolbar ) findViewById( R.id.bar_collection );
+            toolbar.setTitle( "Coleções" );
             toolbar.setTitleTextColor( getResources().getColor( R.color.colorWhite ) );
             setSupportActionBar( toolbar );
             final ActionBar actionBar = getSupportActionBar();
@@ -35,9 +35,6 @@ public class collections extends AppCompatActivity {
                 actionBar.setDefaultDisplayHomeAsUpEnabled( true );
                 actionBar.setDisplayHomeAsUpEnabled( true );
             }
-            collapse = ( CollapsingToolbarLayout ) findViewById( R.id.collapseTitle );
-            collapse.setExpandedTitleColor(getResources().getColor( R.color.colorWhite ));
-            collapse.setTitle( "Titulos" );
 
         floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_title);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

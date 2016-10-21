@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_friends"
+    android:id="@+id/drones"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mycompany.mylibs.Activities.friends">
+    tools:context=".Activities.friends">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/anotherBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/bar_friends"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        android:layout_margin="10dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_add_white_24px"
+        app:backgroundTint="@color/verdeLimaColor"
+        app:borderWidth="0dp"
+        app:fabSize="normal" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:padding="10dp"
+        android:id="@+id/nestedView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/no_itens"
+            android:id="@+id/card_no_drones"
+            android:visibility="visible"/>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

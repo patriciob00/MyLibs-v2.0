@@ -1,7 +1,5 @@
 package com.mycompany.mylibs.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,6 +29,17 @@ public class loans_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_loans_frag, container, false);
+        View v = inflater.inflate(R.layout.fragment_loans_frag, container, false);
+
+        /*FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity(), loans_invites.class);
+                startActivity(in);
+            }
+        });*/
+
+        return v;
     }
 }

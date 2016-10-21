@@ -38,9 +38,6 @@ public class categories extends AppCompatActivity {
                 actionBar.setDefaultDisplayHomeAsUpEnabled( true );
                 actionBar.setDisplayHomeAsUpEnabled( true );
             }
-            collapse = ( CollapsingToolbarLayout ) findViewById( R.id.collapseCategory );
-            collapse.setExpandedTitleColor(getResources().getColor( R.color.colorWhite ));
-            collapse.setTitle( "Categorias" );
 
             floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_category);
             floatingActionButton.setOnClickListener(new View.OnClickListener() {

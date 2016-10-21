@@ -8,41 +8,31 @@
     tools:context=".Activities.categories">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content"
+        android:theme="@style/anotherBar">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapseCategory"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/bar_category"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/bar_category"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        android:layout_margin="10dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_add_white_24px"
-        android:id="@+id/fab_category"
-        app:fabSize="mini"
-        app:layout_anchor="@id/app_bar_layout"
-        app:layout_anchorGravity="right|bottom|end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        app:backgroundTint="@color/verdeLimaColor"
+        app:borderWidth="0dp"
+        app:fabSize="normal" />
 
     <android.support.v4.widget.NestedScrollView
         android:padding="10dp"

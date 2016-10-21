@@ -10,6 +10,6 @@ public class add_collection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_title);
+        setContentView(R.layout.activity_add_collection);
     }
 }
