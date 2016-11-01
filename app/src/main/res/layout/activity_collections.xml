@@ -11,8 +11,8 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content"
+        android:theme="@style/anotherBar">
             <android.support.v7.widget.Toolbar
                 android:id="@+id/bar_collection"
                 android:layout_width="match_parent"
@@ -24,9 +24,11 @@
         android:clickable="true"
         app:srcCompat="@drawable/ic_add_white_24px"
         android:id="@+id/fab_title"
-        app:fabSize="mini"
-        app:layout_anchor="@id/app_bar_layout"
-        app:layout_anchorGravity="right|bottom|end"
+        android:layout_margin="10dp"
+        app:backgroundTint="@color/verdeLimaColor"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        android:layout_gravity="end|bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

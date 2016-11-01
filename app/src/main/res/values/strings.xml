@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My Libs</string>
-
+    <string name="welcome">Bem Vindo</string>
+    <string name="loginWith">Entrar com</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="last_buy">Ultimo item adquirido</string>
