@@ -39,7 +39,7 @@ public class messages extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled( true );
         }
 
-        floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_friends);
+        floatingActionButton = ( FloatingActionButton )findViewById( R.id.fab_message);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

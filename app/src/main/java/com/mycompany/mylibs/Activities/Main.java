@@ -172,7 +172,7 @@ public class Main extends ActionBarActivity {
     private void setupViewPager( ViewPager viewPager ) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new loans_frag(), "EMPRÉSTIMOS");
-        adapter.addFrag(new buys_frag(), "COMPRAS");
+        adapter.addFrag(new buys_frag(), "MARKET");
         adapter.addFrag(new message_frag(), "MENSAGENS");
         viewPager.setAdapter( adapter );
     }
@@ -235,8 +235,6 @@ public class Main extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
 
         return true;
     }
