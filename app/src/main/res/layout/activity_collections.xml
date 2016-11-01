@@ -12,7 +12,7 @@
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/anotherBar">
             <android.support.v7.widget.Toolbar
                 android:id="@+id/bar_collection"
                 android:layout_width="match_parent"
@@ -21,16 +21,16 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right|end"
-        android:layout_margin="10dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_add_white_24px"
-        app:backgroundTint="@color/accentColor"
+        android:id="@+id/fab_title"
+        android:layout_margin="10dp"
+        app:backgroundTint="@color/verdeLimaColor"
         app:borderWidth="0dp"
-        app:fabSize="normal" />
+        app:fabSize="normal"
+        android:layout_gravity="end|bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <android.support.v4.widget.NestedScrollView
         android:padding="10dp"

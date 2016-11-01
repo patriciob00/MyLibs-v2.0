@@ -31,6 +31,7 @@
 
         <activity
             android:name=".Activities.collections"
+            android:theme="@style/AppTheme.Base2"
             android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -48,6 +49,7 @@
 
         <activity
             android:name=".Activities.profile"
+            android:theme="@style/AppTheme.Base2"
             android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -56,8 +58,8 @@
 
         <activity
             android:name=".Activities.settings"
-            android:parentActivityName=".Activities.Main"
-            android:theme="@style/MyCustomToolbar">
+            android:theme="@style/AppTheme.Base2"
+            android:parentActivityName=".Activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Main" />
@@ -65,14 +67,17 @@
 
         <activity
             android:name=".add_activities.add_category"
+            android:theme="@style/AppTheme.Base2"
             android:label="@string/add_category" />
 
         <activity
             android:name=".add_activities.add_collection"
+            android:theme="@style/AppTheme.Base2"
             android:label="@string/add_title" />
 
         <activity
             android:name=".add_activities.add_item"
+            android:theme="@style/AppTheme.Base2"
             android:label="@string/add_volume" />
 
         <activity
@@ -85,11 +90,9 @@
         </activity>
 
         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".Activities.login"
-            android:parentActivityName=".Activities.Main">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.Main" />
+            android:noHistory="true">
         </activity>
 
         <activity
