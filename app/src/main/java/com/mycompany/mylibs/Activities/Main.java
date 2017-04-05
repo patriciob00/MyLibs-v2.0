@@ -34,7 +34,7 @@ import java.util.List;
 
 public class Main extends ActionBarActivity {
 
-    private Toolbar toolbar;
+    Toolbar bar;
     DrawerLayout drawerLayout;
     CoordinatorLayout content;
     NavigationView navView;
@@ -79,8 +79,8 @@ public class Main extends ActionBarActivity {
     }
 
     public void SetToolbar() {
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
+        bar = (Toolbar) findViewById(R.id.bar_main);
+        setSupportActionBar(bar);
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDefaultDisplayHomeAsUpEnabled(true);

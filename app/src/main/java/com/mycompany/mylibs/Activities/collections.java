@@ -42,7 +42,7 @@ public class collections extends AppCompatActivity {
             public void onClick(View view) {
                 Intent data = new Intent( collections.this, add_collection.class );
                 startActivity( data );
-                finish();
+                //finish();
             }
         });
     }

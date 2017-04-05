@@ -1,10 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_add_title"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mycompany.mylibs.add_activities.add_collection">
+    android:fitsSystemWindows="true"
+    tools:context=".add_activities.add_collection"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/anotherBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/bar_new_collection"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.github.siyamed.shapeimageview.CircularImageView
+                    android:id="@+id/image_collection"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    app:siBorderWidth="2dp"
+                    app:siBorderColor="@color/accentColor"
+                    android:src="@drawable/ic_mylibs"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Clique na imagem para editar imagem da coleção"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:textColorHighlight="@color/md_green_900"
+                        android:backgroundTint="@color/md_green_900"
+                        android:shadowColor="@color/md_green_900"
+                        android:textColor="@color/md_green_900"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nome da coleção"
+                        android:inputType="text"
+                        android:padding="10dp"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:gravity="top"
+                        android:layout_gravity="top"
+                        android:textColorHighlight="@color/md_green_900"
+                        android:backgroundTint="@color/md_green_900"
+                        android:shadowColor="@color/md_green_900"
+                        android:textColor="@color/md_green_900"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Descrição da coleção"
+                        android:inputType="text"
+                        android:minLines="2"
+                        android:maxLines="8"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:text="Escolha a categoria"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/spin_categoria"
+                    android:padding="16dp">
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:background="@color/verdeLimaDarkColor"
+                    android:text="Salvar coleção"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:layout_margin="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>

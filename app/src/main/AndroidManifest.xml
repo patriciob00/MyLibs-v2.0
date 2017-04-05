@@ -68,17 +68,29 @@
         <activity
             android:name=".add_activities.add_category"
             android:theme="@style/AppTheme.Base2"
-            android:label="@string/add_category" />
+            android:parentActivityName=".Activities.categories">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.categories" />
+        </activity>
 
         <activity
             android:name=".add_activities.add_collection"
             android:theme="@style/AppTheme.Base2"
-            android:label="@string/add_title" />
+            android:parentActivityName=".Activities.collections">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.collections" />
+        </activity>
 
         <activity
             android:name=".add_activities.add_item"
             android:theme="@style/AppTheme.Base2"
-            android:label="@string/add_volume" />
+            android:parentActivityName=".Activities.itens">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.itens" />
+        </activity>
 
         <activity
             android:name=".Activities.friends"

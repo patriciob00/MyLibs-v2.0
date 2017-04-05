@@ -14,7 +14,6 @@ import com.mycompany.mylibs.R;
 import com.mycompany.mylibs.add_activities.add_item;
 
 public class itens extends AppCompatActivity {
-    CollapsingToolbarLayout collapse;
     Toolbar toolbar;
     FloatingActionButton floatingActionButton;
 
@@ -44,7 +43,7 @@ public class itens extends AppCompatActivity {
             public void onClick(View view) {
                 Intent data = new Intent( itens.this, add_item.class );
                 startActivity( data );
-                finish();
+                //finish();
             }
         });
     }

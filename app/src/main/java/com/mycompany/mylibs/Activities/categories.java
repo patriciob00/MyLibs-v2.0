@@ -45,7 +45,7 @@ public class categories extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent data = new Intent( categories.this, add_category.class );
                     startActivity( data );
-                    finish();
+                    //finish();
                 }
             });
         }
